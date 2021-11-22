@@ -2,5 +2,8 @@
   "name": "ts-scratchpad",
   "version": "0.0.0",
   "private": true,
-  "description": "TypeScript scratchpad"
+  "description": "TypeScript scratchpad",
+  "scripts": {
+    "format": "npx prettier --write --prose-wrap always './**/*.md'"
+  }
 }

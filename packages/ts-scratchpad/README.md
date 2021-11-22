@@ -1,1 +1,1 @@
-# `ts-scratchpad`
+ts-scratchpad
