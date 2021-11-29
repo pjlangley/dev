@@ -3,8 +3,11 @@ import Link from 'next/link'
 import Layout, { siteTitle } from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
+import { PostData } from './posts/[id]'
 
-export default function Home({ allPostsData }) {
+type AllPostData = Omit<PostData, 'contentHtml'>[]
+
+export default function Home({ allPostsData }: { allPostsData: AllPostData }) {
   return (
     <Layout home>
       <Head>
