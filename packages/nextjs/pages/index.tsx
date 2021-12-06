@@ -20,7 +20,7 @@ export default function Home({ allPostsData }: { allPostsData: AllPostData }) {
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
         <p>
-          Here's the{' '} 
+          Here&apos;s the{' '} 
           <Link href="/geo"><a>geo</a></Link>
           {' '}page for some middleware action!
         </p>
