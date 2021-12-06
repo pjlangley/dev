@@ -19,6 +19,11 @@ export default function Home({ allPostsData }: { allPostsData: AllPostData }) {
           (This is a sample website - you&apos;ll be building a site like this on{' '}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
+        <p>
+          Here's the{' '} 
+          <Link href="/geo"><a>geo</a></Link>
+          {' '}page for some middleware action!
+        </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
