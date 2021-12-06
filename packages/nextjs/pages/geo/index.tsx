@@ -18,9 +18,8 @@ export default function Geo({ country, city }: InferGetServerSidePropsType<typeo
 }
 
 export const getServerSideProps: GetServerSideProps<{ country: string, city: string }> = async (context) => {
-  const headers = context.res.getHeaders()
-  const country = headers['x-pjlangley-country']
-  const city = headers['x-pjlangley-city']
+  const country = context.res.getHeader('x-pjlangley-country')
+  const city = context.res.getHeader('x-pjlangley-city')
 
   return {
     props: {
