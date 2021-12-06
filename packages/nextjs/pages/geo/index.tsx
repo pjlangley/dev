@@ -10,8 +10,8 @@ export default function Geo({ country, city }: InferGetServerSidePropsType<typeo
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <pre>country: {country}</pre>  
-        <pre>city: {city}</pre>  
+        <pre>country: {country || 'Unknown'}</pre>  
+        <pre>city: {city || 'Unknown'}</pre>  
       </section>
     </Layout>
   )
@@ -21,10 +21,13 @@ export const getServerSideProps: GetServerSideProps<{ country: string, city: str
   const country = context.res.getHeader('x-pjlangley-country')
   const city = context.res.getHeader('x-pjlangley-city')
 
+  console.log('country', country)
+  console.log('city', city)
+
   return {
     props: {
-      country: (typeof country === 'string' && country.length > 0) ? country : 'Unknown',
-      city: (typeof city === 'string' && city.length > 0) ? city : 'Unknown',
+      country: String(country),
+      city: String(city),
     }
   }
 }
