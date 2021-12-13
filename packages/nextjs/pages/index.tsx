@@ -24,6 +24,10 @@ export default function Home({ allPostsData }: { allPostsData: AllPostData }) {
           <Link href="/geo"><a>geo</a></Link>
           {' '}page for some middleware action!
         </p>
+        <p>
+          Here's some{' '}
+          <Link href="/cowsay">cowsay</Link>.
+        </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
