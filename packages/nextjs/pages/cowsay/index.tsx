@@ -14,14 +14,14 @@ export default function Cowsay({ cowsay }: { cowsay: string }) {
   )
 }
 
-export async function getStaticProps() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}cowsay`)
-  const data = await res.json()
+// export async function getStaticProps() {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}cowsay`)
+//   const data = await res.json()
 
-  return {
-    props: {
-      cowsay: data.cowsay,
-    },
-    revalidate: 10,
-  }
-}
+//   return {
+//     props: {
+//       cowsay: data.cowsay,
+//     },
+//     revalidate: 10,
+//   }
+// }
