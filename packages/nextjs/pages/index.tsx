@@ -25,7 +25,7 @@ export default function Home({ allPostsData }: { allPostsData: AllPostData }) {
           {' '}page for some middleware action!
         </p>
         <p>
-          Here's some{' '}
+          Here&apos;s some{' '}
           <Link href="/cowsay">cowsay</Link>.
         </p>
       </section>
