@@ -1,7 +1,12 @@
 import Head from 'next/head'
+import { useContext, useState } from 'react'
 import Layout, { siteTitle } from '../../components/layout'
+import { ThemeContext } from '../../lib/theme'
 
 export default function Cowsay({ cowsay }: { cowsay: string }) {
+  const theme = useContext(ThemeContext)
+  const [titleColour, setTitleColour] = useState('')
+
   return (
     <Layout>
       <Head>
@@ -10,6 +15,13 @@ export default function Cowsay({ cowsay }: { cowsay: string }) {
       <pre>
         {cowsay}
       </pre>
+
+      <fieldset>
+        <button type='button' onClick={() => setTitleColour(theme.pages.cowsay.title)}>
+          Tell me the name of the title colour
+        </button>
+        <pre>{titleColour}</pre>
+      </fieldset>
     </Layout>
   )
 }

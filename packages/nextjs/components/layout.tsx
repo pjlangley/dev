@@ -4,11 +4,17 @@ import utilStyles from '../styles/utils.module.css'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { ThemeContext } from '../lib/theme'
+import { useContext } from 'react'
 
 const name = 'Pete'
 export const siteTitle = 'Next.js Sample Website'
 
 export default function Layout({ children, home = false }: { children: ReactNode, home?: boolean }) {
+  const router = useRouter()
+  const theme = useContext(ThemeContext)
+
   return (
     <div className={styles.container}>
       <Head>
@@ -55,7 +61,7 @@ export default function Layout({ children, home = false }: { children: ReactNode
             </Link>
             <h2 className={utilStyles.headingLg}>
               <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
+                <a className={utilStyles.colorInherit} style={{ color: router.pathname == '/cowsay' ? theme.pages.cowsay.title : theme.default.title }}>{name}</a>
               </Link>
             </h2>
           </>
