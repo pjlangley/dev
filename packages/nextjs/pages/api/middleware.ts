@@ -1,25 +1,25 @@
-import { IncomingMessage, ServerResponse } from 'http';
 import nextConnect from 'next-connect'
+import { NextApiRequest, NextApiResponse } from "next";
 
-const handler = nextConnect();
+const handler = nextConnect<NextApiRequest, NextApiResponse>();
 
-type RequestWithUser = IncomingMessage & {
+interface ExtendedRequest {
   user: undefined | string
 }
 
-handler.use(async (req: RequestWithUser, _, next) => {
+handler.use<ExtendedRequest>(async (req, _, next) => {
   req.user = await new Promise((res) => {
     setTimeout(() => {
-      return res(Math.floor(Math.random() * 2) ? 'Bill' : undefined);
+      res(Math.floor(Math.random() * 2) ? 'Bill' : undefined);
     }, 1500)
   });
 
   next();
 });
 
-handler.use((req: RequestWithUser, res: ServerResponse) => {
+handler.use((req: ExtendedRequest, res: NextApiResponse) => {
   if (!req.user) {
-    res.end('There is no user');
+    return res.end('There is no user');
   }
   res.end(`The user is ${req.user}`);
 });
