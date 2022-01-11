@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../../components/layout'
 import utilStyles from '../../styles/utils.module.css'
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import { InferGetServerSidePropsType } from 'next'
+import { wrapper, nextjsSlice } from '../../lib/store'
 
 export default function Geo({ country, city }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
@@ -17,9 +18,12 @@ export default function Geo({ country, city }: InferGetServerSidePropsType<typeo
   )
 }
 
-export const getServerSideProps: GetServerSideProps<{ country: string, city: string }> = async (context) => {
+export const getServerSideProps = wrapper.getServerSideProps<{ country: string, city: string }>((store) => async (context) => {
   console.log('context.query.country', context.query.country)
   console.log('context.query.city', context.query.city)
+
+  store.dispatch(nextjsSlice.actions.setCountry(String(context.query.country)))
+  store.dispatch(nextjsSlice.actions.setCity(String(context.query.city)))
 
   const country = context.query.country
   const city = context.query.city
@@ -30,4 +34,4 @@ export const getServerSideProps: GetServerSideProps<{ country: string, city: str
       city: String(city),
     }
   }
-}
+});
