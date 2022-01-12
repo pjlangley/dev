@@ -14,20 +14,18 @@ export default function Home({ allPostsData }: { allPostsData: AllPostData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>Hello, I&apos;m Pete.</p>
-        <p>
-          (This is a sample website - you&apos;ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-        <p>
-          Here&apos;s the{' '} 
-          <Link href="/geo"><a>geo</a></Link>
-          {' '}page for some middleware action!
-        </p>
-        <p>
-          Here&apos;s some{' '}
-          <Link href="/cowsay">cowsay</Link>.
-        </p>
+        <p>Sample webiste using Next.js.</p>
+        <p>Pages:</p>
+        <ul>
+          <li>
+            <Link href="/geo"><a>geo</a></Link>
+            {' '}(uses middleware)
+          </li>
+          <li>
+            <Link href="/cowsay">cowsay</Link>
+            {' '}(uses API endpoint)
+          </li>
+        </ul>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
