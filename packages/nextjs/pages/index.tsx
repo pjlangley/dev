@@ -14,7 +14,7 @@ export default function Home({ allPostsData }: { allPostsData: AllPostData }) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>Sample webiste using Next.js.</p>
+        <p>Sample website using Next.js.</p>
         <p>Pages:</p>
         <ul>
           <li>
