@@ -1,12 +1,12 @@
 import Layout from '../../components/layout'
-import { getAllPostIds, getPostData } from '../../lib/posts'
 import Head from 'next/head'
+import posts from '../../lib/posts'
 
 export type PostData = {
   id: string
   date: string
   title: string
-  contentHtml: string 
+  content: string 
 }
 
 export default function Post({ postData }: { postData: PostData }) {
@@ -22,15 +22,18 @@ export default function Post({ postData }: { postData: PostData }) {
       <br />
       {postData.date}
       <br />
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      Post {postData.id} says{' '}
+      "{postData.content}".
     </Layout>
   )
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds()
   return {
-    paths,
+    paths: [
+      { params: { id: '1' } },
+      { params: { id: '2' } }
+    ],
     fallback: false
   }
 }
@@ -40,7 +43,14 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: { params: Params }) {
-  const postData = await getPostData(params.id)
+  let postData
+
+  if (params.id === '1') {
+    postData = posts.find((post) => post.id === '1')
+  } else {
+    postData = posts.find((post) => post.id === '2')
+  }
+
   return {
     props: {
       postData
