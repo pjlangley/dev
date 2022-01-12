@@ -1,6 +1,6 @@
 import randomstring from 'randomstring'
 
-export default [
+const posts = [
   {
     id: '1',
     title: 'Post One',
@@ -14,3 +14,5 @@ export default [
     content: randomstring.generate({ charset: 'kitten' }),
   },
 ]
+
+export default posts

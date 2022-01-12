@@ -23,7 +23,7 @@ export default function Post({ postData }: { postData: PostData }) {
       {postData.date}
       <br />
       Post {postData.id} says{' '}
-      "{postData.content}".
+      &quot;{postData.content}&quot;.
     </Layout>
   )
 }
