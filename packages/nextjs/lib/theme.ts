@@ -1,14 +1,14 @@
-import { createContext } from 'react'
+import { createContext } from "react";
 
 export const theme = {
   default: {
-    title: 'black',
+    title: "black",
   },
   pages: {
     cowsay: {
-      title: 'rgb(167 243 208)',
+      title: "rgb(167 243 208)",
     },
-  }
-}
+  },
+};
 
-export const ThemeContext = createContext(theme)
+export const ThemeContext = createContext(theme);
