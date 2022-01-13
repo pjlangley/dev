@@ -1,6 +1,4 @@
 import { ReactNode } from 'react'
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -8,7 +6,7 @@ import { useRouter } from 'next/router'
 import { ThemeContext } from '../lib/theme'
 import { useContext } from 'react'
 
-const name = 'Pete'
+const title = 'pjlangley on Next.js'
 export const siteTitle = 'Next.js Sample Website'
 
 export default function Layout({ children, home = false }: { children: ReactNode, home?: boolean }) {
@@ -16,34 +14,26 @@ export default function Layout({ children, home = false }: { children: ReactNode
   const theme = useContext(ThemeContext)
 
   return (
-    <div className={styles.container}>
+    <div className="font-serif dark bg-teal-900 h-screen text-center pt-3">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
           content="Learn how to build a personal website using Next.js"
         />
-        <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
-        <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      <header className='pb-6'>
         {home ? (
           <>
             <Image
               priority
-              src="/images/profile.jpg"
-              className={utilStyles.borderCircle}
+              src="https://placekitten.com/300/300"
               height={144}
               width={144}
-              alt={name}
+              alt={title}
+              className="rounded-full"
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <h1 className="text-3xl">{title}</h1>
           </>
         ) : (
           <>
@@ -51,27 +41,29 @@ export default function Layout({ children, home = false }: { children: ReactNode
               <a>
                 <Image
                   priority
-                  src="/images/profile.jpg"
-                  className={utilStyles.borderCircle}
+                  src="https://placekitten.com/250/250"
                   height={108}
                   width={108}
-                  alt={name}
+                  alt={title}
+                  className='rounded-full'
                 />
               </a>
             </Link>
-            <h2 className={utilStyles.headingLg}>
+            <h2>
               <Link href="/">
-                <a className={utilStyles.colorInherit} style={{ color: router.pathname == '/cowsay' ? theme.pages.cowsay.title : theme.default.title }}>{name}</a>
+                <a className="text-lg hover:underline" style={{ color: router.pathname == '/cowsay' ? theme.pages.cowsay.title : theme.default.title }}>{title}</a>
               </Link>
             </h2>
           </>
         )}
       </header>
+
       <main>{children}</main>
+
       {!home && (
-        <div className={styles.backToHome}>
+        <div className='pt-6'>
           <Link href="/">
-            <a>← Back to home</a>
+            <a className='hover:underline'>← Back to home</a>
           </Link>
         </div>
       )}

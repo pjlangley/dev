@@ -6,7 +6,7 @@ export const theme = {
   },
   pages: {
     cowsay: {
-      title: 'gold',
+      title: 'rgb(167 243 208)',
     },
   }
 }

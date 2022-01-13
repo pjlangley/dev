@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../../components/layout'
-import utilStyles from '../../styles/utils.module.css'
 import { InferGetServerSidePropsType } from 'next'
 import { wrapper, nextjsSlice } from '../../lib/store'
 
@@ -10,7 +9,7 @@ export default function Geo({ country, city }: InferGetServerSidePropsType<typeo
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
+      <section>
         <pre>country: {country || 'Unknown'}</pre>  
         <pre>city: {city || 'Unknown'}</pre>  
       </section>

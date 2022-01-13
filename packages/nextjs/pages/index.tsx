@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
 import { PostData } from './posts/[id]'
 import posts from '../lib/posts'
 
@@ -13,30 +12,30 @@ export default function Home({ allPostsData }: { allPostsData: AllPostData }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>Sample website using Next.js.</p>
-        <p>Pages:</p>
+      <section className='pb-6'>
+        <p className='pb-4'>Sample website using Next.js.</p>
+        <h2 className='pb-2 text-xl'>Pages</h2>
         <ul>
           <li>
-            <Link href="/geo"><a>geo</a></Link>
+            <Link href="/geo"><a className='underline'>geo</a></Link>
             {' '}(uses middleware)
           </li>
           <li>
-            <Link href="/cowsay">cowsay</Link>
+            <Link href="/cowsay"><a className="underline">cowsay</a></Link>
             {' '}(uses API endpoint)
           </li>
         </ul>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
+      <section>
+        <h3 className='text-xl'>Blog</h3>
+        <ul className='pt-3'>
           {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
+            <li key={id} className='pb-2'>
               <Link href={`/posts/${id}`}>
-                <a>{title}</a>
+                <a className='underline'>{title}</a>
               </Link>
               <br />
-              <small className={utilStyles.lightText}>
+              <small>
                 {date}
               </small>
             </li>

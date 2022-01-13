@@ -16,14 +16,19 @@ export default function Post({ postData }: { postData: PostData }) {
         <title>{postData.title}</title>
       </Head>
 
-      {postData.title}
+      <h1 className='text-3xl'>
+        {postData.title}
+      </h1>
+      <small>Post ID: {postData.id}</small>
       <br />
-      {postData.id}
-      <br />
-      {postData.date}
-      <br />
-      Post {postData.id} says{' '}
-      &quot;{postData.content}&quot;.
+      <small>
+        <time dateTime={postData.date}>{postData.date}</time>
+      </small>
+
+      <div className='pt-4 italic'>
+        Post {postData.id} says{' '}
+        &quot;{postData.content}&quot;.
+      </div>
     </Layout>
   )
 }

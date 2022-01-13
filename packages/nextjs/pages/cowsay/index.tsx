@@ -12,15 +12,17 @@ export default function Cowsay({ cowsay }: { cowsay: string }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <pre>
-        {cowsay}
-      </pre>
+      <div className='w-1/2 mr-auto ml-auto'>
+        <pre className='text-left'>
+          {cowsay}
+        </pre>
+      </div>
 
-      <fieldset>
-        <button type='button' onClick={() => setTitleColour(theme.pages.cowsay.title)}>
-          Tell me the name of the title colour
+      <fieldset className='pt-6'>
+        <button type='button' onClick={() => setTitleColour(theme.pages.cowsay.title)} className='rounded-full bg-emerald-400 p-2 px-4 drop-shadow-md border-2 border-teal-300 hover:bg-emerald-300'>
+          Reveal the title colour value
         </button>
-        <pre>{titleColour}</pre>
+        <pre className='text-emerald-200 pt-2'>{titleColour}</pre>
       </fieldset>
     </Layout>
   )
