@@ -1,3 +1,3 @@
 # Nextjs React Server Components
 
-Deployed here: TBC
+Deployed here: https://nextjs-rsc.vercel.app
