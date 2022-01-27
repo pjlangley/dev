@@ -106,13 +106,6 @@ export const lists: Lists = {
       // We've configured its UI display quite a lot to make the experience of editing posts better.
       author: relationship({
         ref: 'User.posts',
-        ui: {
-          displayMode: 'cards',
-          cardFields: ['name', 'email'],
-          inlineEdit: { fields: ['name', 'email'] },
-          linkToItem: true,
-          inlineCreate: { fields: ['name', 'email'] },
-        },
       }),
       // We also link posts to tags. This is a many <=> many linking.
       tags: relationship({
