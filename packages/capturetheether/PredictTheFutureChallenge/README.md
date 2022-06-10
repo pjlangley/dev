@@ -1,0 +1,1 @@
+See https://capturetheether.com/challenges/lotteries/predict-the-future/
